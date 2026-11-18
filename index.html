@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshers Invitation - College of Horticulture and FSR, Nalbari</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="form-card">
+    <div class="eyebrow">COLLEGE OF HORTICULTURE AND FSR, NALBARI</div>
+    <h1>Freshers’ Party Invitation</h1>
+    <p class="intro">Enter your name and roll number to generate your personalized invitation.</p>
+    <p class="small">23 November 2026 · Seminar Hall</p>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <form method="POST" action="/">
+      <label for="student_name">Student name</label>
+      <input id="student_name" name="student_name" type="text" placeholder="Enter your full name" required maxlength="80">
+      <label for="roll_no">Roll number</label>
+      <input id="roll_no" name="roll_no" type="text" placeholder="Enter your roll number" required maxlength="40">
+      <button type="submit">Generate invitation <span>→</span></button>
+    </form>
+    <p class="small">Your invitation will open on the next page.</p>
+  </main>
+</body>
+</html>

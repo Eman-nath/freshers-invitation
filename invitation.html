@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation - {{ name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="invitation-page">
+  <main class="result-wrap">
+    <div class="toolbar">
+      <a class="back-link" href="/">← Enter another student</a>
+      <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+    <section class="invitation">
+      <!-- Replace static/invitation.jpg with your actual invitation image.
+           Keep the image filename as invitation.jpg, or update this src. -->
+      <img class="invitation-art" src="{{ url_for('static', filename='invitation.jpg') }}"
+           alt="Freshers invitation background"
+           onerror="this.style.display='none'; document.getElementById('fallback').style.display='flex';">
+      <div id="fallback" class="fallback-card">
+        <div class="fallback-kicker">YOU ARE CORDIALLY INVITED TO</div>
+        <h1>FRESHERS' PARTY</h1>
+        <div class="ornament">✦ ✦ ✦</div>
+        <p class="welcome">We are delighted to welcome</p>
+        <div class="student-name">{{ name }}</div>
+        <div class="roll">Roll No.: {{ roll_no }}</div>
+        <p class="welcome">Join us for a memorable celebration!</p>
+        <div class="placeholder-note">Replace this sample design with your uploaded invitation image.</div>
+      </div>
+      <div class="personal-details">
+        <span class="personal-name">{{ name }}</span>
+        <span class="personal-roll">Roll No.: {{ roll_no }}</span>
+      </div>
+    </section>
+    <p class="hint">Tip: Choose “Print / Save as PDF” to save this invitation.</p>
+  </main>
+</body>
+</html>
